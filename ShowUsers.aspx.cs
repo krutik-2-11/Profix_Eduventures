@@ -7,14 +7,16 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
-public partial class ShowBooks : System.Web.UI.Page
+
+
+public partial class ShowUsers : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        fillgrdBooks();
+        fillgrdUsers();
     }
 
-    private void fillgrdBooks()
+    private void fillgrdUsers()
     {
         SqlConnection objcon = new SqlConnection();
         objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
@@ -25,29 +27,27 @@ public partial class ShowBooks : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + " select Id, BookName, BookCode, BuyingPrice, SellingPrice from Books";
-       
+        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from Customers";
+        //if (txtProductName.Text != "") sql = sql + " where ProductName = '" + txtProductName.Text + "'";
         objcmd.CommandText = sql;
         SqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
         {
             lblNoRecordFound.Visible = false;
-            grdBooks.Visible = true;
-            grdBooks.DataSource = reader;
-            grdBooks.DataBind();
+            grdUsers.Visible = true;
+            grdUsers.DataSource = reader;
+            grdUsers.DataBind();
 
         }
         else
         {
             lblNoRecordFound.Visible = true;
-            grdBooks.Visible = false;
+            grdUsers.Visible = false;
         }
 
 
 
     }
-
-
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
@@ -60,23 +60,22 @@ public partial class ShowBooks : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + " select Id, BookName, BookCode, BuyingPrice, SellingPrice from Books";
-        if (txtBookName.Text != "") sql = sql + " where BookName = '" + txtBookName.Text + "'";
+        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from Customers";
+        if (txtCustomerName.Text != "") sql = sql + " where Name = '" + txtCustomerName.Text + "'";
         objcmd.CommandText = sql;
         SqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
         {
             lblNoRecordFound.Visible = false;
-            grdBooks.Visible = true;
-            grdBooks.DataSource = reader;
-            grdBooks.DataBind();
+            grdUsers.Visible = true;
+            grdUsers.DataSource = reader;
+            grdUsers.DataBind();
 
         }
         else
         {
             lblNoRecordFound.Visible = true;
-            grdBooks.Visible = false;
+            grdUsers.Visible = false;
         }
-
     }
 }

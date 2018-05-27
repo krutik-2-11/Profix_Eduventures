@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+   <form id="form1" runat="server">
         <div>
           
             <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
@@ -19,7 +19,7 @@
                     <td>
                         <asp:Label ID="lblBookName" Text="BookName" runat="server"></asp:Label>
                         <asp:TextBox ID="txtBookName" CssClass="textfield" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSearch" Text="Search" CssClass="smartbutton" runat="server" />
+                        <asp:Button ID="btnSearch" Text="Search" CssClass="smartbutton" runat="server" OnClick="btnSearch_Click" />
                     </td>
                 </tr>
                 <tr>
