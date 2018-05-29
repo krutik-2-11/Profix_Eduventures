@@ -1,33 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Profix.HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Dummy.aspx.cs" Inherits="Dummy" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Profix</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-      <asp:Label ID="lblName" runat="server"></asp:Label>
+    
     <form id="form1" runat="server">
         <div>
         </div>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Profix</a>
-              
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Profix</a>
+
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><asp:Label ID="lblId" BorderWidth ="2px" ForeColor ="Yellow" runat="server"></asp:Label></li>
+                    <li><asp:Label ID="lblName" BorderWidth ="2px" ForeColor ="YellowGreen" runat="server"></asp:Label></li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="SignIn.aspx"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                <li><a href="UserLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
 
     </form>
 
@@ -70,18 +69,22 @@
 
 
     <div class="container-fluid">
-        
+
         <div class="row">
-            <div class="col-sm-2  col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
+            <div class="col-sm-2  col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" /></div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;">
+                <img src="Images/television.jpg" /></div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" /></div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" /></div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;">
+                <img src="Images/television.jpg" /></div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" /></div>
         </div>
     </div>
-
-
 
 </body>
 </html>
