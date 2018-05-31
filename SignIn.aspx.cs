@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 
 
@@ -23,22 +23,36 @@ public partial class SignIn : System.Web.UI.Page
 
     protected void btnSubmit_Click1(object sender, EventArgs e)
     {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
-        objcon.Open();
 
-        SqlCommand objcmd = new SqlCommand();
-        objcmd.CommandType = CommandType.Text;
-        objcmd.Connection = objcon;
-
-       // objcmd.CommandText = "Insert into Customers(Name, Branch, Year, Email, Phone, UserID, Password)Values('" + txtName.Text + "'," +ddlBranch.SelectedItem.Value+ "," + ddlYear.SelectedItem.Value+ ",'" + txtEmail.Text + "','" + txtPhone.Text + "','" + txtUserID.Text + "','" + txtPassword.Text + "')";
-        objcmd.CommandText = "Insert into Customers(Name,Branch,Year,Email, Phone, UserID, Password)Values('" + txtName.Text + "',@Branch,@Year,'" + txtEmail.Text + "','" + txtPhone.Text + "','" + txtUserID.Text + "','" + txtPassword.Text + "')";
-
-       
-        objcmd.Parameters.AddWithValue("Branch",ddlBranch.SelectedItem.Value);
+        MySqlConnection objcon = new MySqlConnection("server = localhost; user id = root; database = profix; persistsecurityinfo = True;SslMode=none");
+        MySqlCommand cmd;
         
-        objcmd.Parameters.AddWithValue("Year", ddlYear.SelectedItem.Value);
-        objcmd.ExecuteNonQuery();
+        try
+        {
+
+            objcon.Open();
+            cmd = objcon.CreateCommand();
+            cmd.CommandText = "Insert into customers(Name,Branch,Year,Email, Phone, UserID, Password)Values('"+txtName.Text+"','"+ddlBranch.Text+"','"+txtEmail.Text+"','"+ddlYear.Text+"','"+txtPhone.Text+"','"+txtUserID.Text+"','"+txtPassword.Text+"')";
+
+            cmd.ExecuteNonQuery();
+
+        }
+        catch(Exception)
+        {
+            throw;
+
+        }
+        finally
+        {
+            if(objcon.State==ConnectionState.Open)
+            {
+                objcon.Close();
+            }
+        }
+            
+       
+        
+        
         lblMessage.Text = "Record Submitted Successfully!!!";
     }
 

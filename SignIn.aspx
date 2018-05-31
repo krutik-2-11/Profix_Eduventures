@@ -22,7 +22,7 @@
                     <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtName" runat="server" Wrap="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>

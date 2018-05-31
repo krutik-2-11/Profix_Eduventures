@@ -56,3 +56,5 @@ D:\Profix\Profix\obj\Debug\Profix.csproj.CoreCompileInputs.cache
 D:\Profix\Profix\obj\Debug\Profix.csproj.CopyComplete
 D:\Profix\Profix\obj\Debug\Profix.dll
 D:\Profix\Profix\obj\Debug\Profix.pdb
+C:\Users\Jitesh\Desktop\Profix_Eduventures\obj\Debug\Profix.dll
+C:\Users\Jitesh\Desktop\Profix_Eduventures\obj\Debug\Profix.pdb

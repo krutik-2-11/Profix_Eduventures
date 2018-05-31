@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 
 
@@ -18,19 +18,19 @@ public partial class ShowUsers : System.Web.UI.Page
 
     private void fillgrdUsers()
     {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
+        MySqlConnection objcon = new MySqlConnection();
+        objcon.ConnectionString = "server = localhost; user id = root; database = profix; persistsecurityinfo = True;SslMode=none";
         objcon.Open();
 
-        SqlCommand objcmd = new SqlCommand();
+        MySqlCommand objcmd = new MySqlCommand();
         objcmd.CommandType = CommandType.Text;
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from Customers";
+        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from customers";
         //if (txtProductName.Text != "") sql = sql + " where ProductName = '" + txtProductName.Text + "'";
         objcmd.CommandText = sql;
-        SqlDataReader reader = objcmd.ExecuteReader();
+        MySqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
         {
             lblNoRecordFound.Visible = false;
@@ -51,19 +51,19 @@ public partial class ShowUsers : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
+        MySqlConnection objcon = new MySqlConnection();
+        objcon.ConnectionString = "server = localhost; user id = root; database = profix; persistsecurityinfo = True; SslMode = none";
         objcon.Open();
 
-        SqlCommand objcmd = new SqlCommand();
+        MySqlCommand objcmd = new MySqlCommand();
         objcmd.CommandType = CommandType.Text;
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from Customers";
+        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from customers";
         if (txtCustomerName.Text != "") sql = sql + " where Name = '" + txtCustomerName.Text + "'";
         objcmd.CommandText = sql;
-        SqlDataReader reader = objcmd.ExecuteReader();
+        MySqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
         {
             lblNoRecordFound.Visible = false;
