@@ -41,4 +41,15 @@ public partial class Dummy : System.Web.UI.Page
 
        
     }
+
+    protected void btnBuyBooks_Click(object sender, EventArgs e)
+    {
+        
+        Response.Redirect("BuyBook.aspx");
+    }
+
+    protected void btnSellBooks_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("DemandBooks.aspx");
+    }
 }

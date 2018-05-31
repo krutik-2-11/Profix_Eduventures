@@ -9,6 +9,9 @@
         .auto-style1 {
             height: 23px;
         }
+        .auto-style2 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +47,10 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="auto-style2">
                     <asp:Label ID="lblYear" runat="server" Text="Year"></asp:Label>
                 </td>
-                <td>
+                <td class="auto-style2">
                     <asp:DropDownList ID="ddlYear" runat="server">
                         <asp:ListItem>First</asp:ListItem>
                         <asp:ListItem>Second</asp:ListItem>
