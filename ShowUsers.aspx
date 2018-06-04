@@ -31,8 +31,8 @@
                                 
                                 <asp:BoundField DataField="Id" HeaderText="Id" />
                                 <asp:BoundField DataField="Name" HeaderText="Customer Name" />
-                                <asp:BoundField DataField="Branch" HeaderText="Branch" />
-                                <asp:BoundField DataField="Year" HeaderText="Year" />
+                                <asp:BoundField DataField="Section" HeaderText="Section" />
+                                <asp:BoundField DataField="Enrollment" HeaderText="Enrollment" />
                                 <asp:BoundField DataField="Email" HeaderText="Email Id" />
                                 <asp:BoundField DataField="Phone" HeaderText="Contact No" />
 

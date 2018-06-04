@@ -9,6 +9,9 @@
         .auto-style1 {
             height: 23px;
         }
+        .auto-style2 {
+            height: 26px;
+        }
     </style>
 </head>
 <body>
@@ -27,32 +30,29 @@
             </tr>
             <tr>
                 <td class="auto-style1">
-                    <asp:Label ID="lblBranch" runat="server" Text="Branch"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Enrollment/RollNo"></asp:Label>
                 </td>
                 <td class="auto-style1">
-                    <asp:DropDownList ID="ddlBranch" runat="server">
-                        <asp:ListItem>CSE</asp:ListItem>
-                        <asp:ListItem>IT</asp:ListItem>
-                        <asp:ListItem>ME</asp:ListItem>
-                        <asp:ListItem>EE</asp:ListItem>
-                        <asp:ListItem>EI</asp:ListItem>
-                        <asp:ListItem>EC</asp:ListItem>
-                        <asp:ListItem>IP</asp:ListItem>
-                        <asp:ListItem>CE</asp:ListItem>
-                        <asp:ListItem>BME</asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox ID="txtEnrollment" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:Label ID="lblYear" runat="server" Text="Year"></asp:Label>
+                <td class="auto-style2">
+                    <asp:Label ID="lblSection" runat="server" Text="Section"></asp:Label>
                 </td>
-                <td>
-                    <asp:DropDownList ID="ddlYear" runat="server">
-                        <asp:ListItem>First</asp:ListItem>
-                        <asp:ListItem>Second</asp:ListItem>
-                        <asp:ListItem>Third</asp:ListItem>
-                        <asp:ListItem>Fourth</asp:ListItem>
+                <td class="auto-style2">
+                    <asp:DropDownList ID="ddlSection" runat="server">
+                        <asp:ListItem>A</asp:ListItem>
+                        <asp:ListItem>B</asp:ListItem>
+                        <asp:ListItem>C</asp:ListItem>
+                        <asp:ListItem>D</asp:ListItem>
+                        <asp:ListItem>E</asp:ListItem>
+                        <asp:ListItem>F</asp:ListItem>
+                        <asp:ListItem>G</asp:ListItem>
+                        <asp:ListItem>H</asp:ListItem>
+                        <asp:ListItem>I</asp:ListItem>
+                        <asp:ListItem>J</asp:ListItem>
+                        <asp:ListItem>K</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>

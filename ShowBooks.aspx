@@ -7,9 +7,9 @@
     <title></title>
 </head>
 <body>
-   <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div>
-          
+
             <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
                 <tr>
                     <th>Show Books
@@ -28,12 +28,16 @@
                         <asp:GridView ID="grdBooks" AutoGenerateColumns="false" runat="server" Width="100%">
 
                             <Columns>
-                                
+
                                 <asp:BoundField DataField="Id" HeaderText="Id" />
                                 <asp:BoundField DataField="BookName" HeaderText="Book Name" />
                                 <asp:BoundField DataField="BookCode" HeaderText="Book Code" />
-                                <asp:BoundField DataField="BuyingPrice" HeaderText="Buying Price" />
-                                <asp:BoundField DataField="SellingPrice" HeaderText="Selling Price" />
+                                <asp:BoundField DataField="BuyBackRate" HeaderText="BuyBack Rate" />
+                                <asp:BoundField DataField="RentalRate" HeaderText="Rental Rate" />
+                                <asp:BoundField DataField="PenaltyRate" HeaderText="Penalty Rate" />
+                                <asp:BoundField DataField="MarketRate" HeaderText="Market Rate" />
+                                <asp:BoundField DataField="DemandValue" HeaderText="Demand Value" />
+                                <asp:BoundField DataField="StockValue" HeaderText="Stock Value" />
                             </Columns>
                         </asp:GridView>
                         <asp:Label ID="lblNoRecordFound" Text="No Record Found" runat="server" Font-Size="XX-Large"

@@ -32,7 +32,7 @@ public partial class SignIn : System.Web.UI.Page
 
             objcon.Open();
             cmd = objcon.CreateCommand();
-            cmd.CommandText = "Insert into customers(Name,Branch,Year,Email, Phone, UserID, Password)Values('"+txtName.Text+"','"+ddlBranch.Text+"','"+txtEmail.Text+"','"+ddlYear.Text+"','"+txtPhone.Text+"','"+txtUserID.Text+"','"+txtPassword.Text+"')";
+            cmd.CommandText = "Insert into customers(Name,Enrollment,Section,Email,Phone, UserID, Password)Values('"+txtName.Text+"','"+txtEnrollment.Text+ "','" + ddlSection.Text + "','" + txtEmail.Text+"','"+txtPhone.Text+"','"+txtUserID.Text+"','"+txtPassword.Text+"')";
 
             cmd.ExecuteNonQuery();
 

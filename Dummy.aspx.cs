@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 
@@ -15,30 +15,41 @@ public partial class Dummy : System.Web.UI.Page
         ShowDetails();   
     }
 
-    private void ShowDetails()
+    private void ShowDetails() 
     {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
+        MySqlConnection objcon = new MySqlConnection();
+        objcon.ConnectionString = "server = localhost;user id = root; database = profix; persistsecurityinfo = True;SslMode=none";
         objcon.Open();
 
-        SqlCommand objcmd = new SqlCommand();
+        MySqlCommand objcmd = new MySqlCommand();
         objcmd.CommandType = CommandType.Text;
         objcmd.Connection = objcon;
 
         
 
         string sql = "";
-        sql = sql + "Select Name, Branch, Year, Email, Phone, UserID, Password from Customers";
-        string check1 = Session["UserID"].ToString();
-        if (check1!= "") sql = sql + " where UserID = '" + Session["UserID"] + "'";
+        sql = sql + "Select Name,UserId from customers";
+        string check1 = Session["UserId"].ToString();
+        if (check1!= "") sql = sql + " where UserId = '" + Session["UserId"] + "'";
         objcmd.CommandText = sql;
-        SqlDataReader reader = objcmd.ExecuteReader();
+        MySqlDataReader reader = objcmd.ExecuteReader();
         reader.Read();
-        lblId.Text = reader["UserID"].ToString();
+        lblId.Text = reader["UserId"].ToString();
         lblName.Text = reader["Name"].ToString();
         
 
 
        
+    }
+
+    protected void btnBuyBooks_Click(object sender, EventArgs e)
+    {
+        
+        Response.Redirect("BuyBook.aspx");
+    }
+
+    protected void btnSellBooks_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("DemandBooks.aspx");
     }
 }

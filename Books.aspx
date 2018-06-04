@@ -38,26 +38,34 @@
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:Label ID="lblBuyingPrice" runat="server" Text="BuyingPrice"></asp:Label>
+                    <asp:Label ID="lblBuyBackRate" runat="server" Text="BuyBackRate"></asp:Label>
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtBuyingPrice" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    <asp:Label ID="lblSellingPrice" runat="server" Text="SellingPrice"></asp:Label>
-                </td>
-                <td class="auto-style2">
-                    <asp:TextBox ID="txtSellingPrice" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtBuyBackRate" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
+                    <asp:Label ID="lblRentalRate" runat="server" Text="RentalRate"></asp:Label>
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtRentalRate" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="lblPenaltyRate" runat="server" Text="PenaltyRate"></asp:Label>
+                </td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtPenaltyRate" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Label ID="lblMarketRate" runat="server" Text="MarketRate"></asp:Label>
+                </td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtMarketRate" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>

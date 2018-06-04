@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 public partial class UserLogin : System.Web.UI.Page
@@ -16,24 +16,24 @@ public partial class UserLogin : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
+        MySqlConnection objcon = new MySqlConnection();
+        objcon.ConnectionString = "server = localhost; user id = root; database = profix; persistsecurityinfo = True;SslMode=none";
         objcon.Open();
 
-        SqlCommand objcmd = new SqlCommand();
+        MySqlCommand objcmd = new MySqlCommand();
         objcmd.CommandType = CommandType.Text;
         objcmd.Connection = objcon;
 
         String sql = "";
-        sql = sql + " Select UserID from Customers ";
-        sql = sql + " where UserID = '" + txtUserId.Text + "' ";
+        sql = sql + " Select UserID from customers ";
+        sql = sql + " where UserId = '" + txtUserId.Text + "' ";
         sql = sql + " and Password = '" + txtPassword.Text + "'";
         objcmd.CommandText = sql;
 
-        SqlDataReader reader = objcmd.ExecuteReader();
+        MySqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
         {
-            Session["UserID"] = txtUserId.Text;
+            Session["UserId"] = txtUserId.Text;
             
             
             

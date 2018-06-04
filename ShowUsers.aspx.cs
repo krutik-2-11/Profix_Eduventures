@@ -27,7 +27,7 @@ public partial class ShowUsers : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from customers";
+        sql = sql + "Select Id, Name, Section,Enrollment, Email, Phone from customers";
         //if (txtProductName.Text != "") sql = sql + " where ProductName = '" + txtProductName.Text + "'";
         objcmd.CommandText = sql;
         MySqlDataReader reader = objcmd.ExecuteReader();
@@ -60,7 +60,7 @@ public partial class ShowUsers : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + "Select Id, Name, Branch, Year, Email, Phone, UserID, Password from customers";
+        sql = sql + "Select Id, Name, Section, Enrollment, Email, Phone from customers";
         if (txtCustomerName.Text != "") sql = sql + " where Name = '" + txtCustomerName.Text + "'";
         objcmd.CommandText = sql;
         MySqlDataReader reader = objcmd.ExecuteReader();
