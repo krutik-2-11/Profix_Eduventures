@@ -30,7 +30,7 @@ public partial class BuyBook : System.Web.UI.Page
 
 
         string sql = "";
-        sql = sql + "select Id, BookName, BookCode,RentalRate,MarketRate,StockValue from books where StockValue > 1";
+        sql = sql + "select Id, BookName, BookCode,RentalRate,MarketRate,StockValue from books where StockValue > 0";
         objcmd.CommandText = sql;
         MySqlDataReader reader = objcmd.ExecuteReader();
         // reader.Read();
@@ -86,6 +86,7 @@ public partial class BuyBook : System.Web.UI.Page
 
             else
             {
+
                 updaterow(Id, value1, bookCode, test);
             }
 
@@ -108,15 +109,16 @@ public partial class BuyBook : System.Web.UI.Page
         //jab bhi query do to space ka dhyan rakhna " " ke andar nahi to exception ata he  
 
         String sql = "";
-        sql = sql + " update books ";
-        sql = sql + " set ";
-        sql = sql + " StockValue = " + value1 + " ";
+        /* sql = sql + " update books ";
+         sql = sql + " set ";
+         sql = sql + " StockValue = " + value1 + " ";
 
-        sql = sql + " where Id =  " + Id + "; ";
+         sql = sql + " where Id =  " + Id + "; ";
+         */
 
         //books_status queries from here....
 
-        int isPresent = checkIfPresent();   //checks whether UserID already present
+        int isPresent = checkIfPresent(bookCode);   //checks whether UserID already present
 
 
         //if userID is not present in the books_status table then we'll insert it in the table
@@ -124,15 +126,46 @@ public partial class BuyBook : System.Web.UI.Page
         if (isPresent == 0)
         {
             sql = sql + "insert into books_status(UserID," + bookCode.ToString() + ")Values('" + Session["UserID"].ToString() + "'," + test.ToString() + ");";
+
+            sql = sql + " update books ";
+            sql = sql + " set ";
+            sql = sql + " StockValue = " + value1 + " ";
+
+            sql = sql + " where Id =  " + Id + "; ";
+
         }
         //if userID is already present in the books_status table then we'll update it in the table
 
-        else if (isPresent == 1)
+        else if (isPresent == 1)        //if userID already present but book not present
         {
             sql = sql + " update books_status ";
             sql = sql + " set ";
             sql = sql + bookCode.ToString() + " = " + test.ToString();
-            sql = sql + " where UserID = '" + Session["UserID"].ToString() + "' ";
+            sql = sql + " where UserID = '" + Session["UserID"].ToString() + "'; ";
+
+
+            sql = sql + " update books ";
+            sql = sql + " set ";
+            sql = sql + " StockValue = " + value1 + " ";
+
+            sql = sql + " where Id =  " + Id + "; ";
+        }
+
+        else if (isPresent == 2)        //if both UserID and book already present
+        {
+
+            sql = sql + " update books_status ";
+            sql = sql + " set ";
+            sql = sql + bookCode.ToString() + " = " + "1";
+            sql = sql + " where UserID = '" + Session["UserID"].ToString() + "'; ";
+
+            value1 = value1 + 1;
+            sql = sql + " update books ";
+            sql = sql + " set ";
+            sql = sql + " StockValue = " + value1 + " ";
+
+            sql = sql + " where Id =  " + Id + "; ";
+
         }
         objcmd.CommandText = sql;
         objcmd.ExecuteNonQuery();
@@ -143,7 +176,7 @@ public partial class BuyBook : System.Web.UI.Page
     }
 
 
-    private int checkIfPresent()
+    private int checkIfPresent(string bookcode)
     {
         MySqlConnection objcon = new MySqlConnection();
         objcon.ConnectionString = "server = localhost; user id = root; database = profix; persistsecurityinfo = True;SslMode=none";
@@ -153,6 +186,7 @@ public partial class BuyBook : System.Web.UI.Page
         objcmd.CommandType = CommandType.Text;
         objcmd.Connection = objcon;
 
+
         objcmd.CommandText = " select UserID from books_status Where UserID = '" + Session["UserID"].ToString() + "'; ";
 
         int isPresent = 0;
@@ -160,20 +194,70 @@ public partial class BuyBook : System.Web.UI.Page
 
         MySqlDataReader reader = objcmd.ExecuteReader();
 
+
+
+
         if (reader != null && reader.HasRows)       //if UserID already present
         {
             reader.Read();
             isPresent = 1;
-            
 
-            
-
-
+            if (checkBookStatus(bookcode).ToString() == "1")        //if book already taken
+            {
+                isPresent = 2;
+            }
         }
         else if (reader == null)
             isPresent = 0;
 
         return isPresent;
+
+    }
+
+
+    private int checkBookStatus(string bookcode)
+    {
+        MySqlConnection objcon = new MySqlConnection();
+        objcon.ConnectionString = "server = localhost; user id = root; database = profix; persistsecurityinfo = True;SslMode=none";
+        objcon.Open();
+
+        MySqlCommand objcmd = new MySqlCommand();
+        objcmd.CommandType = CommandType.Text;
+        objcmd.Connection = objcon;
+        //objcmd.CommandText = " select UserID from books_status Where UserID = '" + Session["UserID"].ToString() + "'; ";
+
+
+
+        objcmd.CommandText = " select " + bookcode.ToString() + " from books_status where UserID = '" + Session["UserID"].ToString() + "'; ";
+
+        //MySqlDataReader reader = objcmd.ExecuteReader();
+
+        int value = 0;
+        var check = objcmd.ExecuteScalar();
+
+        if (check == null)
+        {
+            value = 0;
+        }
+
+        /* else if(check!=null)
+         {
+             value = (int)check;
+         }
+         */
+
+        else if (check.ToString() == "0")
+        {
+            value = 0;
+        }
+
+        else if (check.ToString() == "1")
+        {
+            value = 1;
+        }
+        return value;
+
+
 
     }
 }
