@@ -13,8 +13,7 @@ public partial class SignIn : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-      //  fillddlBranch();
-       // fillddlYear();
+      
     }
 
 
@@ -32,9 +31,24 @@ public partial class SignIn : System.Web.UI.Page
 
             objcon.Open();
             cmd = objcon.CreateCommand();
-            cmd.CommandText = "Insert into customers(Name,Enrollment,Section,Email,Phone, UserID, Password)Values('"+txtName.Text+"','"+txtEnrollment.Text+ "','" + ddlSection.Text + "','" + txtEmail.Text+"','"+txtPhone.Text+"','"+txtUserID.Text+"','"+txtPassword.Text+"')";
 
-            cmd.ExecuteNonQuery();
+            //this statement is used so that if user accidently clicks submit button more than once then only a single recrd will be taken
+            cmd.CommandText = "select UserID from customers where UserID = '" +txtUserID.Text+"'; ";    
+            var check = cmd.ExecuteScalar();
+
+            if (check == null)
+            {
+                cmd.CommandText = "Insert into customers(Name,Enrollment,Section,Email,Phone, UserID, Password,ProfixCard)Values('" + txtName.Text + "','" + txtEnrollment.Text + "','" + ddlSection.Text + "','" + txtEmail.Text + "','" + txtPhone.Text + "','" + txtUserID.Text + "','" + txtPassword.Text + "',0)";
+                cmd.ExecuteNonQuery();
+                lblMessage.Text = "Record Submitted Successfully!!!";
+            }
+
+            else
+            {
+                
+                lblMessage.Text = "username already present!!";
+            }
+            //cmd.ExecuteNonQuery();
 
         }
         catch(Exception)
@@ -53,52 +67,9 @@ public partial class SignIn : System.Web.UI.Page
        
         
         
-        lblMessage.Text = "Record Submitted Successfully!!!";
+       
     }
 
-   /* private void fillddlBranch()
-    {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
-        objcon.Open();
-
-        SqlCommand objcmd = new SqlCommand();
-        objcmd.CommandType = CommandType.Text;
-        objcmd.Connection = objcon;
-
-        //objcmd.CommandText = "Select Id,Branch from Branch";
-        objcmd.CommandText = "Select ID,Branch from Branch";
-        SqlDataReader reader = objcmd.ExecuteReader();
-
-        ddlBranch.DataSource = reader;
-        ddlBranch.DataTextField = "Branch";
-        ddlBranch.DataValueField = "Id";
-        ddlBranch.DataBind();
-
-    }
-
-
-    private void fillddlYear()
-    {
-        SqlConnection objcon = new SqlConnection();
-        objcon.ConnectionString = "Data source = LAPTOP-CCHRDOI8\\SQLEXPRESS;user id = sa;password = kittu2pathak;Initial Catalog = Profix;";
-        objcon.Open();
-
-        SqlCommand objcmd = new SqlCommand();
-        objcmd.CommandType = CommandType.Text;
-        objcmd.Connection = objcon;
-
-        // objcmd.CommandText = "select Id,Year from Year";
-        objcmd.CommandText = "Select Id,Year from Year";
-        SqlDataReader reader = objcmd.ExecuteReader();
-
-        ddlYear.DataSource = reader;
-        ddlYear.DataTextField = "Year";
-        ddlYear.DataValueField = "Id";
-        ddlYear.DataBind();
-
-    }
-    */
 }
 
 

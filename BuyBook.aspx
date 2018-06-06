@@ -5,9 +5,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Buy Book</title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 224px;
+        }
+        .auto-style2 {
+            width: 997px;
+            height: 301px;
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="auto-style2">
         <div>
 
             <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
@@ -23,7 +32,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="auto-style1">
                         <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
 
                         <asp:GridView ID="grdAvailableBooks" AutoGenerateColumns="False" runat="server" Width="100%">

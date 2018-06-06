@@ -29,15 +29,32 @@ public partial class Books : System.Web.UI.Page
 
             objcon.Open();
             cmd = objcon.CreateCommand();
-            string sql = "";
-            sql = sql + "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "');";
 
-            string temp = txtBookCode.Text;
-            sql = sql + "ALTER TABLE books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
-            sql = sql + "ALTER TABLE sell_books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
-            cmd.CommandText = sql;
+            //to avoid same bookcode being added twice
+            cmd.CommandText = "select BookCode from Books where BookCode = '" + txtBookCode.Text + "'; ";
+            var check = cmd.ExecuteScalar();
 
-            cmd.ExecuteNonQuery();
+            if (check == null)
+            {
+                string sql = "";
+                sql = sql + "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "');";
+
+
+
+                string temp = txtBookCode.Text;
+                sql = sql + "ALTER TABLE books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
+                sql = sql + "ALTER TABLE sell_books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
+                cmd.CommandText = sql;
+
+                cmd.ExecuteNonQuery();
+                lblMessage.Text = "Record Submitted Successfully!!";
+            }
+
+            else
+            {
+                 
+                lblMessage.Text = "record already submitted";
+            }
             objcon.Close();
 
 
@@ -58,7 +75,7 @@ public partial class Books : System.Web.UI.Page
 
 
 
-        lblMessage.Text = "Record Submitted Successfully!!";
+       
 
 
 
