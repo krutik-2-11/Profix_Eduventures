@@ -109,13 +109,7 @@ public partial class BuyBook : System.Web.UI.Page
         //jab bhi query do to space ka dhyan rakhna " " ke andar nahi to exception ata he  
 
         String sql = "";
-        /* sql = sql + " update books ";
-         sql = sql + " set ";
-         sql = sql + " StockValue = " + value1 + " ";
-
-         sql = sql + " where Id =  " + Id + "; ";
-         */
-
+       
         //books_status queries from here....
 
         int isPresent = checkIfPresent(bookCode);   //checks whether UserID already present
@@ -239,22 +233,16 @@ public partial class BuyBook : System.Web.UI.Page
         {
             value = 0;
         }
-
-        /* else if(check!=null)
-         {
-             value = (int)check;
-         }
-         */
-
-        else if (check.ToString() == "0")
+        
+        else if (check.ToString() == "0" || check.ToString() == "1")
         {
-            value = 0;
+            value = Convert.ToInt32(check);
         }
 
-        else if (check.ToString() == "1")
+        /*else if (check.ToString() == "1")
         {
             value = 1;
-        }
+        }*/
         return value;
 
 

@@ -26,31 +26,21 @@ public partial class Books : System.Web.UI.Page
         try
         {
 
-            /*  objcon.Open();
-              cmd = objcon.CreateCommand();
-              cmd.CommandText = "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "')";
-              cmd.ExecuteNonQuery();
-
-              string temp = txtBookCode.Text;
-
-              cmd1 = objcon.CreateCommand();
-              cmd1.CommandText = "ALTER TABLE books_status ADD " + temp + "INT; ";
-              cmd1.ExecuteNonQuery();
-            */
 
             objcon.Open();
             cmd = objcon.CreateCommand();
             string sql = "";
             sql = sql + "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "');";
-            
+
             string temp = txtBookCode.Text;
             sql = sql + "ALTER TABLE books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
+            sql = sql + "ALTER TABLE sell_books_status ADD " + txtBookCode.Text.ToString() + " INT; ";
             cmd.CommandText = sql;
 
             cmd.ExecuteNonQuery();
             objcon.Close();
 
-            
+
 
         }
         catch (Exception)
