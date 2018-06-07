@@ -19,6 +19,7 @@
 
             <asp:Button ID="btnBuyBooks" Text="Buy Books" runat="server" OnClick="btnBuyBooks_Click" />
             <asp:Button ID="btnSellBooks" Text="Sell Books" runat="server" OnClick="btnSellBooks_Click" />
+            <asp:Button ID="btnBooksStatus" runat="server" OnClick="btnBooksStatus_Click" Text="Check Sold Books Status" />
         </div>
 
      

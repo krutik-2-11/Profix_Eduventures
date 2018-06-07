@@ -52,4 +52,9 @@ public partial class Dummy : System.Web.UI.Page
     {
         Response.Redirect("DemandBooks.aspx");
     }
+
+    protected void btnBooksStatus_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("checkMyBookStatus.aspx");
+    }
 }
