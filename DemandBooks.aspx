@@ -4,28 +4,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Sell Books</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+    <form id="form1" runat="server" style="width:100%" class="table-responsive">
+        
 
-            <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
+            <table border="2" style="width:inherit" class="table-borderless">
                 <tr>
-                    <th>Sell Book
+                    <th style="background-color:dodgerblue;color:whitesmoke">Sell Book
                     </th>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblBookName" Text="Search Book Name" runat="server"></asp:Label>
+                        <asp:Label ID="lblBookName" Text="Search Book Name" ForeColor="Maroon" Font-Bold="true" runat="server"></asp:Label>
                         <asp:TextBox ID="txtBookName" CssClass="textfield" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSearch" Text="Search" CssClass="smartbutton" runat="server" />
+                        <asp:Button ID="btnSearch" Text="Search" CssClass="btn-danger" runat="server" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:GridView ID="grdDemandBooks" AutoGenerateColumns="False" runat="server" Width="100%">
+                        <asp:GridView ID="grdDemandBooks" AutoGenerateColumns="False" runat="server" CssClass="table table-striped table-bordered table-hover" BackColor="Wheat" Width="100%">
 
                             <Columns>
 
@@ -48,10 +49,9 @@
                     </td>
                 </tr>
             </table>
-        </div>
-        <asp:Button ID="btnSellBooks" runat="server" OnClick="btnSellBooks_Click" Text="Sell Selected Books" />
-        <asp:TextBox ID="txtID" runat="server"></asp:TextBox>
-        <asp:TextBox ID="txtDemand" runat="server"></asp:TextBox>
+        
+        <asp:Button ID="btnSellBooks" runat="server" OnClick="btnSellBooks_Click" Text="Sell Selected Books" CssClass="btn-primary" />
+        
     </form>
 </body>
 </html>

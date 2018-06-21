@@ -4,32 +4,34 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Bought Boos Status</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
+<body style="background-color:wheat" style="width:100%" class="table-responsive">
     <form id="form1" runat="server">
-        <div>
+        <div style="background-color:indianred;color:whitesmoke">
+            Check Bought Book Status
         </div>
         <table style="width: 100%;">
             <tr>
                 <td>
-                    <asp:Label ID="lblUserID" runat="server" Text="UserID"></asp:Label>
+                    <asp:Label ID="lblUserID" runat="server" Text="Enter UserID" ForeColor="Maroon"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtUserID" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUserID" class="form-control" placeholder="Enter UserID" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblBookCode" runat="server" Text="BookCode"></asp:Label>
+                    <asp:Label ID="lblBookCode" runat="server" Text="Enter BookCode" ForeColor="Maroon"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtBookCode" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtBookCode" class="form-control" placeholder="Enter Book Code" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td colspan ="2" align ="center">
-                    <asp:Button ID="btnCheckStatus" runat="server" Text="Check Status" OnClick="btnCheckStatus_Click" />
+                    <asp:Button ID="btnCheckStatus" runat="server" Text="Check Status" OnClick="btnCheckStatus_Click" CssClass="btn-danger" />
                 </td>
                 <td>&nbsp;</td>
             </tr>
@@ -43,7 +45,7 @@
             </tr>
             <tr>
                 <td colspan ="2" align ="center">
-                    <asp:Button ID="btnChangeStatus" runat="server" Text="Change Status" OnClick="btnChangeStatus_Click" />
+                    <asp:Button ID="btnChangeStatus" runat="server" Text="Change Status" CssClass="btn-success" OnClick="btnChangeStatus_Click"/>
                     <asp:Label ID="lblChangedStatus" runat="server" ForeColor="Green"></asp:Label>
                 </td>
                 <td>&nbsp;</td>

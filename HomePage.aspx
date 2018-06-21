@@ -11,23 +11,35 @@
 </head>
 <body>
 
-      <asp:Label ID="lblName" runat="server"></asp:Label>
+    <asp:Label ID="lblName" runat="server"></asp:Label>
     <form id="form1" runat="server">
         <div>
         </div>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Profix</a>
-              
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="HomePage.aspx">Profix</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Homepage.aspx">Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Our Books <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Physics Semester</a></li>
+                            <li><a href="#">Chemistry Semester</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="#">About Us</a></li>
+                     <li><a href="#">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="SignIn.aspx"><span class="glyphicon glyphicon-user"></span>Create New Account</a></li>
+                    <li><a href="UserLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>User Login</a></li>
+                    <li><a href="AdminLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>Admin Login</a></li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="SignIn.aspx"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                <li><a href="UserLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
 
     </form>
 
@@ -70,14 +82,26 @@
 
 
     <div class="container-fluid">
-        
+
         <div class="row">
-            <div class="col-sm-2  col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;"><img src="Images/television.jpg" /></div>
-            <div class="col-sm-2 col-xs-4" style="background-color: lavender;"><img src="Images/television.jpg" /></div>
+            <div class="col-sm-2  col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" />
+            </div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;">
+                <img src="Images/television.jpg" />
+            </div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" />
+            </div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" />
+            </div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavenderblush;">
+                <img src="Images/television.jpg" />
+            </div>
+            <div class="col-sm-2 col-xs-4" style="background-color: lavender;">
+                <img src="Images/television.jpg" />
+            </div>
         </div>
     </div>
 

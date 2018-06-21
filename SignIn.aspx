@@ -4,28 +4,29 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Sign In</title>
     <style type="text/css">
         .auto-style1 {
             height: 23px;
         }
+
         .auto-style2 {
             height: 26px;
         }
     </style>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
+    <div style="background-color: dodgerblue; color: white; font-size: x-large">Create New Account</div>
     <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="lblSignIn" runat="server" Text="SignIn"></asp:Label>
-        </div>
-        <table style="width:100%;">
+
+        <table style="width: 100%;" class="form-group">
             <tr>
                 <td>
                     <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtName" runat="server" Wrap="False"></asp:TextBox>
+                    <asp:TextBox ID="txtName" class="form-control" placeholder="Enter Your Name" runat="server" Wrap="False"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -33,7 +34,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Enrollment/RollNo"></asp:Label>
                 </td>
                 <td class="auto-style1">
-                    <asp:TextBox ID="txtEnrollment" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEnrollment" class="form-control" placeholder="Enter Your Enrollement Number" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -41,7 +42,7 @@
                     <asp:Label ID="lblSection" runat="server" Text="Section"></asp:Label>
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlSection" runat="server">
+                    <asp:DropDownList ID="ddlSection" class="form-control" runat="server">
                         <asp:ListItem>A</asp:ListItem>
                         <asp:ListItem>B</asp:ListItem>
                         <asp:ListItem>C</asp:ListItem>
@@ -61,7 +62,7 @@
                     <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" class="form-control" placeholder="Enter Your Email ID" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -69,7 +70,7 @@
                     <asp:Label ID="lblPhone" runat="server" Text="Phone"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPhone" runat="server" TextMode="Number" ></asp:TextBox>
+                    <asp:TextBox ID="txtPhone" class="form-control" placeholder="Enter Your Contact Number" runat="server" TextMode="Number"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -77,7 +78,7 @@
                     <asp:Label ID="lblUserID" runat="server" Text="UserID"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtUserID" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUserID" class="form-control" placeholder="Enter UserID of Your Choice" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -85,13 +86,19 @@
                     <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" class="form-control" placeholder="Enter Password Of Your Choice" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td colspan ="2" align ="center">
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click1" />
+                <td colspan="2" align="center">
+                    <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary" Text="Submit" OnClick="btnSubmit_Click1" />
                     <asp:Label ID="lblMessage" runat="server" ForeColor="Green"></asp:Label>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <asp:Button ID="btnBack" runat="server" class="btn-success" Text="Back To Login Page" OnClick="btnBack_Click" />
                 </td>
                 <td>&nbsp;</td>
             </tr>

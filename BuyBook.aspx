@@ -9,59 +9,53 @@
         .auto-style1 {
             height: 224px;
         }
+
         .auto-style2 {
             width: 997px;
             height: 301px;
         }
     </style>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server" class="auto-style2">
-        <div>
+    <form id="form1" runat="server" style="width:100%" class="table-responsive">
 
-            <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
-                <tr>
-                    <th>Buy Book
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label ID="lblBookName" Text="Search Book Name" runat="server"></asp:Label>
-                        <asp:TextBox ID="txtBookName" CssClass="textfield" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSearch" Text="Search" CssClass="smartbutton" runat="server" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">
-                        <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+        <table border="2" style="width:inherit" class="table-borderless">
+            <tr>
+                <th style="background-color:dodgerblue;color:whitesmoke">Buy Book
+                </th>
+            </tr>
 
-                        <asp:GridView ID="grdAvailableBooks" AutoGenerateColumns="False" runat="server" Width="100%">
+            <tr>
+                <td class="auto-style1">
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
 
-                            <Columns>
+                    <asp:GridView ID="grdAvailableBooks" AutoGenerateColumns="False" runat="server" Width="100%" CssClass="table table-striped table-bordered table-hover" BackColor="Wheat">
 
-                                <asp:BoundField DataField="Id" HeaderText="Id"/>
-                                <asp:BoundField DataField="BookName" HeaderText="Book Name" />
-                                <asp:BoundField DataField="BookCode" HeaderText="Book Code" />
-                                <asp:BoundField DataField="RentalRate" HeaderText="Rental Rate" />
-                                <asp:BoundField DataField="MarketRate" HeaderText="Market Rate" />
-                                <asp:BoundField DataField="StockValue" HeaderText="Stock Value" />
-                                <asp:TemplateField HeaderText="Buy">
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true"/>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                        <asp:Label ID="lblNoRecordFound" Text="No Record Found" runat="server" Font-Size="XX-Large"
-                            Font-Bold="true" ForeColor="Red"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Buy Selected Books" />
+                        <Columns>
+
+                            <asp:BoundField DataField="Id" HeaderText="Id" />
+                            <asp:BoundField DataField="BookName" HeaderText="Book Name" />
+                            <asp:BoundField DataField="BookCode" HeaderText="Book Code" />
+                            <asp:BoundField DataField="RentalRate" HeaderText="Rental Rate" />
+                            <asp:BoundField DataField="MarketRate" HeaderText="Market Rate" />
+                            <asp:BoundField DataField="StockValue" HeaderText="Stock Value" />
+                            <asp:TemplateField HeaderText="Buy">
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:Label ID="lblNoRecordFound" Text="No Record Found" runat="server" Font-Size="XX-Large"
+                        Font-Bold="true" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
+        </table>
+
+        <asp:Button ID="Button1" runat="server" CssClass="btn-success" OnClick="Button1_Click" Text="Buy Selected Books" />
         <asp:Label ID="lblConfirm" runat="server" ForeColor="Green"></asp:Label>
-        <asp:TextBox ID="txtValue" runat="server"></asp:TextBox>
-        <asp:TextBox ID="txtId" runat="server"></asp:TextBox>
+        
     </form>
 </body>
 </html>

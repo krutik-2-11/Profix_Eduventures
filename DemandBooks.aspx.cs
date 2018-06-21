@@ -72,8 +72,7 @@ public partial class DemandBooks : System.Web.UI.Page
             {
                 test = 1;
                 value1 = value1 - 1;
-                txtID.Text = Id.ToString();
-                txtDemand.Text = value1.ToString();
+               
                 updaterow(Id, value1, bookCode, test);
             }
             else

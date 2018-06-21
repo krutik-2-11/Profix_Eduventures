@@ -4,31 +4,32 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Users</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-          
-            <table border="2" cellpadding="5" class="tablegrid" cellspacing="0" width="100%">
+    <form id="form1" runat="server" style="width:100%" class="table-responsive">
+        
+
+            <table style="width:inherit" class="table-borderless">
                 <tr>
-                    <th>Show Customers
+                    <th style="background-color:indianred;color:whitesmoke">Show Customers
                     </th>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblCustomerName" Text="Customer Name" runat="server"></asp:Label>
+                        <asp:Label ID="lblCustomerName" Text="Customer Name" ForeColor="Maroon" Font-Bold="true" runat="server"></asp:Label>
                         <asp:TextBox ID="txtCustomerName" CssClass="textfield" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSearch" Text="Search" CssClass="smartbutton" runat="server" OnClick="btnSearch_Click"/>
+                        <asp:Button ID="btnSearch" Text="Search" CssClass="btn-danger" runat="server" OnClick="btnSearch_Click" />
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:GridView ID="grdUsers" AutoGenerateColumns="false" runat="server" Width="100%">
+                        <asp:GridView ID="grdUsers" AutoGenerateColumns="false" runat="server" Width="100%" CssClass="table table-striped table-bordered table-hover" BackColor="Wheat">
 
                             <Columns>
-                                
+
                                 <asp:BoundField DataField="Id" HeaderText="Id" />
                                 <asp:BoundField DataField="Name" HeaderText="Customer Name" />
                                 <asp:BoundField DataField="Section" HeaderText="Section" />
@@ -44,7 +45,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        
     </form>
 </body>
 </html>

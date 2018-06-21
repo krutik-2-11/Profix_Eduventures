@@ -79,8 +79,7 @@ public partial class BuyBook : System.Web.UI.Page
             {
                 test = 1;
                 value1 = value1 - 1;
-                txtId.Text = bookCode;
-                txtValue.Text = value1.ToString();
+                
                 updaterow(Id, value1, bookCode, test);
             }
 

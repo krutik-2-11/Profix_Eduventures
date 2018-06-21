@@ -7,9 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
-
-
-
+using System.IO;
 
 public partial class Books : System.Web.UI.Page
 {
@@ -36,8 +34,11 @@ public partial class Books : System.Web.UI.Page
 
             if (check == null)
             {
+
+                FileUpload1.SaveAs(Server.MapPath("~/Images/") + Path.GetFileName(FileUpload1.FileName));
+                String link = "Images/" + Path.GetFileName(FileUpload1.FileName);
                 string sql = "";
-                sql = sql + "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "');";
+                sql = sql + "INSERT INTO Books(BookName, BookCode, BuyBackRate,RentalRate,PenaltyRate,MarketRate,Image) Values('" + txtBookName.Text + "','" + txtBookCode.Text + "','" + txtBuyBackRate.Text + "','" + txtRentalRate.Text + "','" + txtPenaltyRate.Text + "','" + txtMarketRate.Text + "','"+link+"');";
 
 
 

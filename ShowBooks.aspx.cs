@@ -26,8 +26,8 @@ public partial class ShowBooks : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + "select Id, BookName, BookCode, BuyBackRate, RentalRate,PenaltyRate,MarketRate,DemandValue,StockValue from books";
-       
+        sql = sql + "select Id, BookName, BookCode, BuyBackRate, RentalRate,PenaltyRate,MarketRate,DemandValue,StockValue,Image from books";
+
         objcmd.CommandText = sql;
         MySqlDataReader reader = objcmd.ExecuteReader();
         if (reader != null && reader.HasRows)
@@ -61,7 +61,7 @@ public partial class ShowBooks : System.Web.UI.Page
         objcmd.Connection = objcon;
 
         string sql = "";
-        sql = sql + " select Id, BookName, BookCode, BuyBackRate, RentalRate,PenaltyRate,MarketRate,DemandValue,StockValue from books";
+        sql = sql + " select Id, BookName, BookCode, BuyBackRate, RentalRate,PenaltyRate,MarketRate,DemandValue,StockValue,Image from books";
         if (txtBookName.Text != "") sql = sql + " where BookName = '" + txtBookName.Text + "'";
         objcmd.CommandText = sql;
         MySqlDataReader reader = objcmd.ExecuteReader();
@@ -80,4 +80,7 @@ public partial class ShowBooks : System.Web.UI.Page
         }
 
     }
+
+
+   
 }
